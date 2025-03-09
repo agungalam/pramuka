@@ -18,22 +18,17 @@
 <script src="<?php echo $assets; ?>assets/js/dataTables/jquery.dataTables.js"></script>
 <script src="<?php echo $assets; ?>assets/js/dataTables/dataTables.bootstrap.js"></script>
 <script>
-  function dataTables(){
-    $('#dataTables-example').dataTable();
+  function dataTables() {
+    if ($.fn.DataTable.isDataTable("#dataTables-example")) {
+        $("#dataTables-example").DataTable().destroy(); // Hapus DataTables
+        console.log('didestroy datatables')
+    }
+    $('#dataTables-example').dataTable({
+      "destroy": true, // Pastikan bisa diinisialisasi ulang
+      "processing": true,
+    });
   }
 </script>
-<!-- CUSTOM SCRIPTS -->
-<!-- <script src="<?php echo $assets; ?>assets/js/custom.js"></script> -->
-
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('ul li a').click(function() {
-      $('li a').removeClass("active-menu");
-      $(this).addClass("active-menu");
-    });
-  });
-</script> -->
 
 
 </body>

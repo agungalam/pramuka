@@ -22,18 +22,26 @@
             text-align: center;
         }
     </style>
+    <script>
+        const koneksi = `<?php echo $assets; ?>`;
+    </script>
 </head>
 
 <body>
     <?php
     // session_start();
-    // if (($_SESSION['status'] == 'user') || 1==1) { ?>
-        <style>
-            .tema {
-                background-color: orange;
-            }
-        </style>
-    <?php //} ?>
+    // if (($_SESSION['status'] == 'user') || 1==1) { 
+    ?>
+    <style>
+        .tema {
+            background-color: orange;
+        }
+        .mt-input{
+            margin-top: 10px;
+        }
+    </style>
+    <?php //} 
+    ?>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top tema" role="navigation" style="margin-bottom: 0;">
             <div class="navbar-header">

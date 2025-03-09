@@ -1,5 +1,4 @@
 <script>
-    const koneksi = "<?php echo $assets; ?>";
     const tabel = $("#tabel");
     tabel.html("")
     console.log("sudah di hapus", koneksi)
@@ -15,7 +14,7 @@
             const json = await response.json();
             console.log(json);
             if (json.result) {
-                json.data.forEach((i,no) => {
+                json.data.forEach((i, no) => {
                     const data = `
                         <tr class="odd gradeX">
                             <td>${++no}</td>
@@ -32,10 +31,13 @@
                     `;
                     tabel.append(data);
                 })
-                dataTables();
             }
         } catch (error) {
             console.error(error.message);
         }
+    }
+
+    function tambahData() {
+        $('#myModal').modal('show')
     }
 </script>
