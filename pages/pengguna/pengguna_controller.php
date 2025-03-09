@@ -34,8 +34,9 @@ function updateData()
     $password = $koneksi->real_escape_string($input["password"]);
     $status = $koneksi->real_escape_string($input["status"]);
 
+    $encode=password_hash($password, PASSWORD_BCRYPT);
     // Query update ke database
-    $query = "UPDATE tb_user SET nama='$nama', username='$username', password='$password',password2='$password', status='$status' WHERE id_user='$id'";
+    $query = "UPDATE tb_user SET nama='$nama', username='$username', password='$encode',password2='$password', status='$status' WHERE id_user='$id'";
 
     if ($koneksi->query($query)) {
         echo json_encode(["result" => true, "message" => "Data berhasil diperbarui"]);
@@ -53,8 +54,9 @@ function simpanData()
     $password = $koneksi->real_escape_string($input["password"]);
     $status = $koneksi->real_escape_string($input["status"]);
 
+    $encode=password_hash($password, PASSWORD_BCRYPT);
     $query = "INSERT INTO tb_user (nama, username, password, password2, status) 
-              VALUES ('$nama', '$username', '$password', '$password', '$status')";
+              VALUES ('$nama', '$username', '$encode', '$password', '$status')";
 
     if ($koneksi->query($query)) {
         echo json_encode(["result" => true, "message" => "Data berhasil disimpan"]);

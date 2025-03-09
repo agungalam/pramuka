@@ -196,6 +196,7 @@ include '../../partials/foot.php';
             setTimeout(() => {
                 alert(json.message);
             }, 500);
+            getDataTable()
         } catch (error) {
             console.error("Terjadi kesalahan:", error.message);
 
@@ -247,6 +248,7 @@ include '../../partials/foot.php';
             setTimeout(() => {
                 alert(json.message);
             }, 500);
+            getDataTable();
         } catch (error) {
             console.error("Terjadi kesalahan:", error.message);
         }
